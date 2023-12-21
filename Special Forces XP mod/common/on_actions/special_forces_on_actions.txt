@@ -9,6 +9,7 @@ on_actions = {
 			every_country={
 				limit = { exists = no }
 				set_variable = { ROOT.special_forces_xp = 0.00 }
+				set_variable = { ROOT.special_forces_xp_cap = 500.00 }
 			}
 		}
 	}
@@ -16,6 +17,20 @@ on_actions = {
 		effect = {
 			#Automatically scopes for every country
 			#add_political_power = 25		#E.G this would add 25 political power to every country every 24hrs
+			
+			if={			#You shouldn't need these, but they're good failsafes incase something goes wrong. KEEP THESE AT THE TOP
+				limit = { NOT = { has_variable = special_forces_xp } }
+				set_variable = { ROOT.special_forces_xp = 0.00 }
+			}
+			if={
+				limit = { NOT = { has_variable = special_forces_xp_cap } }
+				set_variable = { ROOT.special_forces_xp_cap = 500.00 }
+			}
+			
+			
+			
+			
+			
 			
 			set_variable = { ROOT.special_forces_xp_to_add = 0 }			#Initially I was going to do a temp variable but it's good to keep this around for loc
 			add_to_variable = { ROOT.special_forces_xp_to_add = modifier@experience_gain_special_forces }
