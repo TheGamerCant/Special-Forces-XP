@@ -19,6 +19,7 @@ guiTypes = {
 			background = {
 				name = "special_forces_xp_bg"
 				quadTextureSprite ="GFX_mini_tooltip"
+				alwaystransparent = yes
 			}
 
 			iconType = {
@@ -34,13 +35,19 @@ guiTypes = {
 				position = { x= 23 y = 5 }
 				font = "hoi_18mbs"
 				text = "special_forces_xp_value_text"
-				pdx_tooltip = "special_forces_xp_tooltip"
-				pdx_tooltip_delayed = "special_forces_xp_tooltip_delayed"
 				format = left
 				maxWidth = 30
 				maxHeight = 24
 				fixedsize = yes
-				alwaystransparent = yes
+				alwaystransparent = no
+			}
+			
+			iconType = {
+				name ="secret_bg_for_tooltip"
+				spriteType = "GFX_secret_bg_56x30"
+				alwaystransparent = no
+				pdx_tooltip = "special_forces_xp_tooltip"
+				pdx_tooltip_delayed = "special_forces_xp_tooltip_delayed"			#Needs to be at the bottom
 			}
 		}
 	}
