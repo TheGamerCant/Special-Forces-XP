@@ -1,0 +1,28 @@
+on_actions = {
+	on_startup={
+		effect={
+			every_country={
+				limit = { exists = yes }			#Automatically set to no, need to do yes and no. I mean, it shouldn't be too much of an issue if you don't, but best to avoid that kinda thing.
+				set_variable = { ROOT.special_forces_xp = 0.00 }
+				set_variable = { ROOT.special_forces_xp_cap = 500.00 }
+			}
+			every_country={
+				limit = { exists = no }
+				set_variable = { ROOT.special_forces_xp = 0.00 }
+			}
+		}
+	}
+	on_daily = {			#Kinda laggy, but what can you do?
+		effect = {
+			#Automatically scopes for every country
+			#add_political_power = 25		#E.G this would add 25 political power to every country every 24hrs
+			
+			set_variable = { ROOT.special_forces_xp_to_add = 0 }			#Initially I was going to do a temp variable but it's good to keep this around for loc
+			add_to_variable = { ROOT.special_forces_xp_to_add = modifier@experience_gain_special_forces }
+			multiply_variable = { ROOT.special_forces_xp_to_add = modifier@experience_gain_special_forces_factor }
+			
+			add_to_variable = { ROOT.special_forces_xp = ROOT.special_forces_xp_to_add }
+			clamp_variable = { var = ROOT.special_forces_xp max = ROOT.special_forces_xp_cap }
+		}
+	}
+}
