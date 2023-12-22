@@ -1,15 +1,40 @@
 ideas ={
-	country = {
-	
-	test_special_forces_xp_idea = {
-		allowed = {
+	country = {	
+		test_special_forces_xp_idea = {
+			allowed = {
+			}
+			
+			removal_cost = -1
+		
+			modifier = {
+				experience_gain_special_forces = 0.2
+				experience_gain_special_forces_factor = 0.18
+			}
+			
+			on_add = {	
+				get_special_forces_xp_daily_to_add = yes
+			}
+			on_remove = {
+				get_special_forces_xp_daily_to_add = yes
+			}
 		}
 		
-		removal_cost = -1
-	
-		modifier = {
-			experience_gain_special_forces = 0.2
-			experience_gain_special_forces_factor = 0.18
+		test_special_forces_xp_doctrine_idea = {
+			allowed = {
+			}
+			
+			removal_cost = -1
+		
+			modifier = {
+				special_forces_doctrine_cost_factor = -0.5
+			}
+			
+			on_add = {	
+				get_special_forces_doctrine_cost = yes	
+			}
+			on_remove = {
+				get_special_forces_doctrine_cost = yes
+			}
 		}
 	}
 }
